@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Rat = function (name, weight, speed) {
+        this.name=name;
+        this.weight=weight;
+        this.speed=speed;
+        this.status=true;
+        this.setName = function (ten) {
+            this.name=ten;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setWeight = function (weight) {
+            this.weight=weight;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.song = function () {
+            this.status=true
+        };
+        this.chet = function () {
+            this.status=false
+        };
+        this.check = function () {
+            if(this.status){
+                console.log(this.name+": Alive")
+            }else {
+                console.log(this.name+ ": Dead")
+            }
+        };
+    };
+    let Cat = function (name, weight, speed) {
+        this.name=name;
+        this.weight=weight;
+        this.speed=speed;
+        this.status=true;
+        this.setName = function (ten) {
+            this.name=ten;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setWeight = function (weight) {
+            this.weight=weight;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.catch = function () {
+            if(this.speed>rat.speed){
+                this.status=false;
+            }
+
+        };
+        this.eat = function (rat) {
+            if(rat.song&&this.status===false){
+                this.weight=this.weight+rat.weight;
+                rat.chet();
+            }
+        }
+    };
+    let rat = new Rat("Jerry",10,20);
+    let cat = new Cat("Tom",20,30);
+    console.log(rat.getName());
+    console.log(rat.getWeight()+'kg');
+    console.log('toc do: '+rat.speed);
+    rat.check();
+    console.log(cat.getName());
+    console.log(cat.getWeight()+'kg');
+    console.log('toc do: '+cat.speed);
+    cat.catch();
+    cat.eat(rat);
+    rat.check();
+    console.log(cat.getName()+' '+cat.getWeight()+'kg');
+</script>
+
+</body>
+</html>
